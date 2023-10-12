@@ -1,10 +1,17 @@
-package tdd;
+import data.models.Diary;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import services.DiaryServicesImpl;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 public class DiaryRepositoryImplTest {
     private DiaryServicesImpl diaryRepository;
-    @BeforeEach public void setUp(){
+    @BeforeEach
+    public void setUp(){
 
         diaryRepository = new DiaryServicesImpl();
     }

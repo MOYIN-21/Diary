@@ -1,5 +1,3 @@
-package tdd;
-
 import data.models.Entry;
 import data.repositories.EntryRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;

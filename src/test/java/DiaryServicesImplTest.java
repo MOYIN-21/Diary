@@ -1,5 +1,3 @@
-package tdd;
-
 import data.models.Entry;
 import dtos.LogInRequest;
 import dtos.RegisterUserRequest;

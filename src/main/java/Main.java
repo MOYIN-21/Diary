@@ -9,6 +9,8 @@ import static java.lang.System.*;
 public class Main {
         private static DiaryControllers diaryController = new DiaryControllers();
         private static String currentUser;
+
+
         public static void main(String[] args) {
 
             displayMainMenu();
@@ -38,7 +40,7 @@ public class Main {
 
         private static void exitApplication() {
             print("Thank you for using this application");
-            exit(69);
+            exit(1);
         }
 
         private static void aboutUs() {
