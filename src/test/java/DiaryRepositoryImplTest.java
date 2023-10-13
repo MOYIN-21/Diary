@@ -1,4 +1,6 @@
 import data.models.Diary;
+import data.repositories.DiaryRepository;
+import data.repositories.DiaryRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import services.DiaryServicesImpl;
@@ -9,11 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class DiaryRepositoryImplTest {
-    private DiaryServicesImpl diaryRepository;
+    private DiaryRepositoryImpl diaryRepository;
     @BeforeEach
     public void setUp(){
-
-        diaryRepository = new DiaryServicesImpl();
+        diaryRepository = new DiaryRepositoryImpl();
     }
     @Test
     public void saveOneDiary_countIsOneTest(){
@@ -25,7 +26,6 @@ public class DiaryRepositoryImplTest {
     @Test public void saveOneDiary_FindDiaryTest(){
         Diary diary = new Diary();
         Diary newDiary = diaryRepository.save(diary);
-
         assertEquals(newDiary, diaryRepository.findById(diary.getId()));
     }
 
@@ -34,7 +34,6 @@ public class DiaryRepositoryImplTest {
         diary.setUsername("Glory Sharon");
         diaryRepository.save(diary);
         assertEquals("Glory Sharon", diaryRepository.findById(1).getUsername());
-
         Diary updatedDiary = new Diary();
         updatedDiary.setId(1);
         updatedDiary.setUsername("Ola Moyinoluwa");
@@ -50,9 +49,7 @@ public class DiaryRepositoryImplTest {
         diaryRepository.save(anotherDiary);
         Diary extraDiary = new Diary();
         diaryRepository.save(extraDiary);
-
         assertEquals(extraDiary, diaryRepository.findById(3));
-
         assertEquals(3, diaryRepository.count());
 
     }
@@ -64,38 +61,117 @@ public class DiaryRepositoryImplTest {
 
     @Test public void deleteDiary_countReduces(){
         Diary diary = new Diary();
-        diary.setUsername("Muiliyu Sodiq");
+        diary.setUsername("Olawamide Moyinoluwa");
         diaryRepository.save(diary);
-        assertEquals("Muiliyu Sodiq", diaryRepository.findById(1).getUsername());
-
+        assertEquals("Olawamide Moyinoluwa", diaryRepository.findById(1).getUsername());
         Diary updatedDiary = new Diary();
-        updatedDiary.setUsername("King Akintomide");
+        updatedDiary.setUsername("Moyinoluwa Shikemi");
         diaryRepository.save(updatedDiary);
-        assertEquals("King Akintomide", diaryRepository.findById(2).getUsername());
-
+        assertEquals("Moyinoluwa Shikemi", diaryRepository.findById(2).getUsername());
         diaryRepository.delete(diary);
         assertEquals(1, diaryRepository.count());
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Test public void clearDiaryTest(){
         Diary diary = new Diary(); diaryRepository.save(diary);
         Diary anotherDiary = new Diary(); diaryRepository.save(anotherDiary);
         Diary extraDiary = new Diary(); diaryRepository.save(extraDiary);
-
         assertEquals(3, diaryRepository.count());
-
         diaryRepository.clear();
         assertEquals(0, diaryRepository.count());
 
     }
-
     @Test public void AllDiariesCanBeReceivedTest(){
         Diary diary = new Diary(); diaryRepository.save(diary);
         Diary anotherDiary = new Diary(); diaryRepository.save(anotherDiary);
         Diary extraDiary = new Diary(); diaryRepository.save(extraDiary);
-
         assertEquals(3, diaryRepository.count());
-
         Iterable<Diary> allDiaries = List.of(new Diary[]{diary, anotherDiary, extraDiary});
         assertEquals(allDiaries, diaryRepository.findAll());
     }

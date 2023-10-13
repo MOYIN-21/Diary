@@ -36,7 +36,7 @@ public class EntryServicesImpl implements EntryServices{
         return entryRepository.count();
     }
 
-    @Override  l .
+    @Override
     public void delete(String ownerName, String title) {
         Entry foundEntry = findEntry(ownerName, title);
         entryRepository.delete(foundEntry);
