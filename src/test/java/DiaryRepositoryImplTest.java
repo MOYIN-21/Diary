@@ -1,16 +1,16 @@
-import data.models.Diary;
-import data.repositories.DiaryRepository;
-import data.repositories.DiaryRepositoryImpl;
+import com.CrossFundWallet.application.data.models.Diary;
+import lombok.Data;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import services.DiaryServicesImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-
+@Data
 public class DiaryRepositoryImplTest {
+    @Autowired
     private DiaryRepositoryImpl diaryRepository;
     @BeforeEach
     public void setUp(){

@@ -1,0 +1,134 @@
+package com.CrossFundWallet.application;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Main {
+//    private static DiaryControllers diaryController;
+//    private static String currentUser;
+
+
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
+    }
+}
+
+//        private static void displayMainMenu() {
+//            String menu = """
+//                1. Create Account
+//
+//                2. Log in
+//
+//                3. About the Application
+//
+//                4. Exit
+//
+//                Enter: """;
+//
+//            char userInput = input(menu).charAt(0);
+//            switch (userInput){
+//                case '1' -> registerAccount();
+//                case '2' -> logIn();
+//                case '3' -> aboutUs();
+//                case '4' -> exitApplication();
+//                default -> displayMainMenu();
+//            }
+//        }
+//
+//        private static void exitApplication() {
+//            print("Thank you for using this application");
+//            exit(1);
+//        }
+//
+//        private static void aboutUs() {
+//            print("""
+//               WELCOME TO EAGLE DIARY!!!
+//               YOUR RECORDS ARE SAVED HERE!
+//               FEEL GOOD :)
+//                """);
+//            displayMainMenu();
+//        }
+//
+//        private static void logIn() {
+//            String username = input("Enter username: ");
+//            String password = input("Enter password: ");
+//            LogInRequest logInRequest = new LogInRequest();
+//            logInRequest.setPassword(password);
+//            logInRequest.setUserName(username);
+//            String login = diaryController.unlock(logInRequest);
+//            if (login.equals("Incorrect Password") || login.equals("Diary Not Found")) {
+//                print(login);
+//                logIn();
+//            }else {
+//                currentUser = username;
+//                print(login);
+//                displayDiaryMenu();
+//            }
+//        }
+//
+//        private static void displayDiaryMenu() {
+//            String menu = """
+//                Diary Menu:
+//                1. Create Entry
+//
+//                2. Find Entry
+//
+//                3. Update Entry
+//
+//                4. Log out
+//
+//                Enter: """;
+//
+//            char userInput = input(menu).charAt(0);
+//            switch (userInput){
+//                case '1' -> createEntry();
+//                case '2' -> findEntry();
+//                case '3' -> logOut();
+//                default -> displayDiaryMenu();
+//            }
+//        }
+//
+//        private static void logOut() {
+//            String locked = diaryController.lock(currentUser);
+//            print(locked);
+//            displayMainMenu();
+//        }
+//
+//        private static void findEntry() {
+//            String title = input("Enter title: ");
+//            String foundEntry = diaryController.findEntry(currentUser, title);
+//            print(foundEntry);
+//            displayDiaryMenu();
+//        }
+//
+//        private static void createEntry() {
+//            String title = input("Enter title: ");
+//            String body = input("Enter body: ");
+//            String entryCreated = diaryController.createEntry(currentUser, title, body);
+//            print(entryCreated);
+//            displayDiaryMenu();
+//        }
+//
+//        private static void registerAccount() {
+//            String username = input("Enter username: ");
+//            String password = input("Enter password: ");
+//            RegisterUserRequest registerUserRequest = new RegisterUserRequest();
+//            registerUserRequest.setUserName(username);
+//            registerUserRequest.setPassword(password);
+//            String registered = diaryController.register(registerUserRequest);
+//            print(registered);
+//            displayMainMenu();
+//        }
+//
+//        private static String input(String prompt) {
+//            out.print(prompt);
+//            Scanner keyboardInput = new Scanner(in);
+//            return keyboardInput.nextLine();
+//        }
+//
+//        private static void print(String message) {
+//            out.println(message);
+//        }
+//
+//    }
